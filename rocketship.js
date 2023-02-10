@@ -32,7 +32,6 @@ endShape();
 fill(0, 0, 0);
 ellipse((x + 325) * s, (y + 375) * s, 40 * s, 30 * s);
 
-// I took the arc part from a youtube video
-// https://www.youtube.com/watch?v=IWLpIJMVRtg&t=18s
+// The following 2 lines oif code was adapted from https://www.youtube.com/watch?v=IWLpIJMVRtg&t=18s accessed 23-02-08
 fill(0, 0, 0, 30);
 arc(x * s, (y + 70) * s, (x - 50) * s, y * s, PI, radians(360));
