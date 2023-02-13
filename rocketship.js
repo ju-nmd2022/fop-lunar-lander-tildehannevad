@@ -15,7 +15,7 @@ function rocketShip(x, y, s) {
   ellipse((x + 40) * s, (y + 113) * s, 35 * s);
   ellipse((x + 105) * s, (y + 95) * s, 35 * s);
   // body of rocketship
-  fill(255, 0, 0);
+  fill(0, 204, 102);
   ellipse(x * s, (y + 70) * s, 250 * s, 90 * s);
   // Axel
   // hair on neck
