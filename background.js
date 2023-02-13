@@ -1,4 +1,5 @@
 // background
+// the following 10 lines of code + line 121-124 was adapted from https://pixelkind.github.io/foundationsofprogramming//programming/15-07-example accessed 23-02-13
 let starX = [];
 let starY = [];
 let starAlpha = [];
@@ -13,16 +14,18 @@ for (let i = 0; i < 700; i++) {
   starAlpha.push(alpha);
 }
 
-// planet
-fill(255, 204, 229);
-ellipse(350, width, 1500, 450);
+function planet(x, y, s) {
+  // planet
+  fill(255, 204, 229);
+  ellipse(350, width, 1500, 450);
 
-noStroke();
-// landing place
-fill(170, 170, 170);
-rect(202, 630, 95, 40);
-fill(240, 30, 10);
-ellipse(250, 630, 100, 30);
+  noStroke();
+  // landing place
+  fill(170, 170, 170);
+  rect(202, 630, 95, 40);
+  fill(240, 30, 10);
+  ellipse(250, 630, 100, 30);
+}
 
 function tree(x, y, s) {
   // tree
@@ -108,15 +111,15 @@ function rocketShip(x, y, s) {
 }
 
 function draw() {
+  noStroke();
+  planet(350, width, 1500, 450);
   tree(20, 100, 1.0);
   tree(400, 220, 0.7);
   tree(540, -110, 1.4);
   rocketShip(200, 200, 0.3);
 
- 
-
   for (let index in starX) {
-    fill(255, 255, 255, Math.abs(Math.sin(starAlpha[index])) * 255);
+    fill(255, 255, 153, Math.abs(Math.sin(starAlpha[index])) * 255);
     ellipse(starX[index], starY[index], 3);
     starAlpha[index] = starAlpha[index] * 0.02;
   }
