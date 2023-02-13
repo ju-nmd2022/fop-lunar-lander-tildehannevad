@@ -1,7 +1,6 @@
 // background
 fill(255, 204, 229);
-ellipse(350, width, 1500, 400);
-
+ellipse(350, width, 1500, 700);
 
 noStroke();
 // landing place
@@ -31,5 +30,5 @@ function tree(x, y, s) {
 function draw() {
   tree(20, 10, 1.0);
   tree(400, 100, 0.7);
-  tree(480, - 130, 1.4);
+  tree(480, -130, 1.4);
 }

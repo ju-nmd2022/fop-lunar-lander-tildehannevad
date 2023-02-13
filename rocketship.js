@@ -8,10 +8,15 @@ background(255, 255, 255);
 function rocketShip(x, y, s) {
   noStroke();
 
+  // wheels
+  fill(0, 0, 0);
+  ellipse((x - 100) * s, (y + 100) * s, 35 * s);
+  ellipse((x - 30) * s, (y + 115) * s, 35 * s);
+  ellipse((x + 40) * s, (y + 113) * s, 35 * s);
+  ellipse((x + 105) * s, (y + 95) * s, 35 * s);
   // body of rocketship
   fill(255, 0, 0);
   ellipse(x * s, (y + 70) * s, 250 * s, 90 * s);
-  // wheels
   // Axel
   // hair on neck
   fill(139, 69, 19);
