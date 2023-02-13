@@ -11,6 +11,7 @@ function rocketShip(x, y, s) {
   // body of rocketship
   fill(255, 0, 0);
   ellipse(x * s, (y + 70) * s, 250 * s, 90 * s);
+  // wheels
   // Axel
   // hair on neck
   fill(139, 69, 19);
@@ -66,5 +67,5 @@ function rocketShip(x, y, s) {
 
 function draw() {
   background(255, 255, 255);
-  rocketShip(200, 200, 1);
+  rocketShip(200, 200, 0.4);
 }
