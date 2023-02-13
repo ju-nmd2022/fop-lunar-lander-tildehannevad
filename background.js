@@ -1,6 +1,6 @@
 // background
 fill(255, 204, 229);
-ellipse(350, width, 1500, 700);
+ellipse(350, width, 1500, 450);
 
 noStroke();
 // landing place
