@@ -2,6 +2,9 @@
 background(255, 255, 255);
 
 function rocketShip(x, y, s) {
+  push();
+  translate();
+  scale(s);
   noStroke();
 
   // wheels
@@ -56,9 +59,10 @@ function rocketShip(x, y, s) {
   // glas around head
   fill(255, 255, 255, 100);
   ellipse(200, 200, 80);
+  pop();
 }
 
 function draw() {
-  background(0, 0, 0);
+  background(255, 255, 20);
   rocketShip(200, 200, 2);
 }

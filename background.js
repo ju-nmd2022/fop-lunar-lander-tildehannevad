@@ -1,5 +1,5 @@
-//----------------------------//
-//----------------------------//
+//---------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------//
 // functions
 
 function planet() {
@@ -41,7 +41,7 @@ function rocketShip(x, y, s) {
   scale(s);
 
   // wheels
-  fill(0, 0, 0);
+  fill(251, 135, 35);
   ellipse(110, 300, 35);
   ellipse(170, 315, 35);
   ellipse(230, 315, 35);
@@ -123,10 +123,10 @@ function mousePressed() {
   }
 }
 
-//---------------------------------//
-//---------------------------------//
-
+//---------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------//
 // background
+
 let starX = [];
 let starY = [];
 let starAlpha = [];
@@ -141,8 +141,8 @@ for (let i = 0; i < 700; i++) {
   starAlpha.push(alpha);
 }
 
-//--------------------------------//
-//--------------------------------//
+//---------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------//
 // screens
 
 function startScreen() {
@@ -155,7 +155,7 @@ function startScreen() {
     starAlpha[index] = starAlpha[index] + 0.02;
   }
 
-  rocketShip(250, 190, 1.1);
+  rocketShip(300, 100, 1.3);
   fill(255, 255, 255);
   textSize(20);
   text(
@@ -168,7 +168,15 @@ function startScreen() {
     50,
     200
   );
-  text("Press 'space' to play and good luck!!", 50, 270);
+  text("Press 'space' to start and good luck!!", 90, 620);
+  text("How to play?", 50, 300);
+  triangle(150, 420, 160, 400, 170, 420);
+  textSize(15);
+  text("UP", 150, 440);
+  triangle(90, 455, 110, 465, 110, 445);
+  text("LEFT", 80, 485);
+  triangle(210, 445, 210, 465, 235, 455);
+  text("RIGHT", 200, 485);
 
   if (keyIsDown(32)) {
     state = "play";
@@ -229,8 +237,10 @@ function winScreen() {
     ellipse(starX[index], starY[index], 2);
     starAlpha[index] = starAlpha[index] + 0.02;
   }
-
   replayButton(240, 650, 200, 50);
+  fill(255, 255, 255);
+  text("Thank you for helping Axel land safely!! ❤️", 100, 250);
+  rocketShip(300, 100, 1.3);
 }
 
 function loseScreen() {
@@ -238,12 +248,21 @@ function loseScreen() {
   background(0, 0, 50);
 
   for (let index in starX) {
-    fill(255, 25, 180, Math.abs(Math.sin(starAlpha[index])) * 255);
+    fill(255, 255, 180, Math.abs(Math.sin(starAlpha[index])) * 255);
     ellipse(starX[index], starY[index], 2);
     starAlpha[index] = starAlpha[index] + 0.02;
   }
 
   replayButton(240, 650, 200, 50);
+  fill(255, 255, 255);
+  text("Be more careful!! Axel did not make it this time... 🥲", 100, 250);
+  rocketShip(300, 100, 1.3);
+  stroke(255, 25, 80);
+  strokeWeight(10);
+  line(400, 300, 750, 560);
+  stroke(255, 25, 80);
+  strokeWeight(10);
+  line(750, 300, 400, 560);
 }
 
 let x = 100;
@@ -256,8 +275,9 @@ let isGameActive = true;
 let state = "start";
 let replayButtonIsClicked = false;
 
-//------------------------------//
-//------------------------------//
+//---------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------//
+// draw
 
 function draw() {
   if (state === "start") {
