@@ -98,6 +98,10 @@ function rocketShip(x, y, s) {
   arc(x * s, (y + 70) * s, (x - 50) * s, y * s, PI, radians(360));
 }
 
+let x = 100;
+let y = 100;
+let speed = 0;
+
 //---------------------------------//
 //---------------------------------//
 
@@ -141,4 +145,13 @@ function gameScreen() {
 
 function draw() {
   gameScreen();
+  rocketShip(200, 200, 0.3);
+
+  x = x + speed;
+
+  if (keyIsDown(38)) {
+    speed = 5;
+  } else {
+    speed = 0;
+  }
 }
