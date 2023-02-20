@@ -72,5 +72,5 @@ function rocketShip(x, y, s) {
 
 function draw() {
   background(255, 255, 255);
-  rocketShip(200, 200, 0.4);
+  rocketShip(200, 200, 2);
 }

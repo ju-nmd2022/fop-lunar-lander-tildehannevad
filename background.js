@@ -1,23 +1,11 @@
-// background
-// the following 10 lines of code + line 121-124 was adapted from https://pixelkind.github.io/foundationsofprogramming//programming/15-07-example accessed 23-02-13
-let starX = [];
-let starY = [];
-let starAlpha = [];
+//----------------------------//
+//----------------------------//
+// functions
 
-for (let i = 0; i < 700; i++) {
-  const x = Math.floor(Math.random() * width);
-  const y = Math.floor(Math.random() * height);
-  const alpha = Math.random();
-
-  starX.push(x);
-  starY.push(y);
-  starAlpha.push(alpha);
-}
-
-function planet(x, y, s) {
+function planet() {
   // planet
   fill(255, 204, 229);
-  ellipse(350, width, 1500, 450);
+  ellipse(350, 800, 1500, 450);
 
   noStroke();
   // landing place
@@ -106,21 +94,51 @@ function rocketShip(x, y, s) {
   arc(x * s, (y + 12) * s, 10 * s, 2 * s, 0, PI);
   // glas roof on rocket ship
   // The following 2 lines of code was adapted from https://www.youtube.com/watch?v=IWLpIJMVRtg&t=18s accessed 23-02-08
-  fill(0, 0, 0, 30);
+  fill(255, 255, 255, 100);
   arc(x * s, (y + 70) * s, (x - 50) * s, y * s, PI, radians(360));
 }
 
-function draw() {
+//---------------------------------//
+//---------------------------------//
+
+// background
+let starX = [];
+let starY = [];
+let starAlpha = [];
+
+for (let i = 0; i < 700; i++) {
+  const x = Math.floor(Math.random() * width);
+  const y = Math.floor(Math.random() * height);
+  const alpha = Math.random();
+
+  starX.push(x);
+  starY.push(y);
+  starAlpha.push(alpha);
+}
+
+//--------------------------------//
+//--------------------------------//
+// screens
+
+function gameScreen() {
   noStroke();
-  planet(350, width, 1500, 450);
+  background(0, 0, 50);
+
+  for (let index in starX) {
+    fill(255, 255, 180, Math.abs(Math.sin(starAlpha[index])) * 255);
+    ellipse(starX[index], starY[index], 2);
+    starAlpha[index] = starAlpha[index] + 0.02;
+  }
+  planet();
   tree(20, 100, 1.0);
   tree(400, 220, 0.7);
   tree(540, -110, 1.4);
   rocketShip(200, 200, 0.3);
+}
 
-  for (let index in starX) {
-    fill(255, 255, 153, Math.abs(Math.sin(starAlpha[index])) * 255);
-    ellipse(starX[index], starY[index], 3);
-    starAlpha[index] = starAlpha[index] * 0.02;
-  }
+//------------------------------//
+//------------------------------//
+
+function draw() {
+  gameScreen();
 }
