@@ -95,6 +95,34 @@ function rocketShip(x, y, s) {
   pop();
 }
 
+function replayButton(x, y, w, h) {
+  fill(0, 204, 102);
+  rect(x, y, w, h);
+  fill(0, 0, 0);
+  textSize(20);
+  text("Play again!", x + 50, y + 30);
+}
+
+function mousePressed() {
+  if (state === "win" || state === "lose") {
+    if (
+      mouseX > 240 &&
+      mouseX < 240 + 200 &&
+      mouseY > 650 &&
+      mouseY < 650 + 50
+    ) {
+      replayButtonIsClicked = true;
+      isGameActive = true;
+      x = 100;
+      y = -100;
+      velocity = 1;
+      acceleration = 0.1;
+      speed = 0;
+      state = "play";
+    }
+  }
+}
+
 //---------------------------------//
 //---------------------------------//
 
@@ -125,6 +153,25 @@ function startScreen() {
     fill(255, 255, 180, Math.abs(Math.sin(starAlpha[index])) * 255);
     ellipse(starX[index], starY[index], 2);
     starAlpha[index] = starAlpha[index] + 0.02;
+  }
+
+  rocketShip(250, 190, 1.1);
+  fill(255, 255, 255);
+  textSize(20);
+  text(
+    "Help Axel and his rocket ship to land on a new unexplored planet.",
+    50,
+    170
+  );
+  text(
+    "But be careful, if you land too fast he will not make it!! 🙀",
+    50,
+    200
+  );
+  text("Press 'space' to play and good luck!!", 50, 270);
+
+  if (keyIsDown(32)) {
+    state = "play";
   }
 }
 
@@ -165,10 +212,38 @@ function gameScreen() {
   if (y > 530 && x > 100 && x < 200 && velocity <= 5) {
     isGameActive = false;
     speed = 0;
+    state = "win";
   } else if (y > 570) {
     isGameActive = false;
     speed = 0;
+    state = "lose";
   }
+}
+
+function winScreen() {
+  noStroke();
+  background(0, 0, 50);
+
+  for (let index in starX) {
+    fill(255, 255, 180, Math.abs(Math.sin(starAlpha[index])) * 255);
+    ellipse(starX[index], starY[index], 2);
+    starAlpha[index] = starAlpha[index] + 0.02;
+  }
+
+  replayButton(240, 650, 200, 50);
+}
+
+function loseScreen() {
+  noStroke();
+  background(0, 0, 50);
+
+  for (let index in starX) {
+    fill(255, 25, 180, Math.abs(Math.sin(starAlpha[index])) * 255);
+    ellipse(starX[index], starY[index], 2);
+    starAlpha[index] = starAlpha[index] + 0.02;
+  }
+
+  replayButton(240, 650, 200, 50);
 }
 
 let x = 100;
@@ -179,6 +254,7 @@ let speed = 0;
 let isGameActive = true;
 
 let state = "start";
+let replayButtonIsClicked = false;
 
 //------------------------------//
 //------------------------------//
@@ -189,5 +265,9 @@ function draw() {
   } else if (state === "play") {
     gameScreen();
     rocketShip(x, y, 0.3);
+  } else if (state === "win") {
+    winScreen();
+  } else if (state === "lose") {
+    loseScreen();
   }
 }
