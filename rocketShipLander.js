@@ -144,7 +144,7 @@ for (let i = 0; i < 700; i++) {
   starAlpha.push(alpha);
 }
 
-// start, play and end screens
+// start, play and end screen
 
 function startScreen() {
   noStroke();
