@@ -1,5 +1,6 @@
 // setup in browser
 
+// the following three lines of code (4, 5, 6) is retrived from https://www.youtube.com/watch?v=isI3J1JYEag 02-27-23
 function setup() {
   createCanvas(900, 800);
   frameRate(30);
@@ -130,6 +131,7 @@ function mousePressed() {
 
 // background nightsky
 
+// the following 10 lines of code (135, 136, 137, 139, 140, 141, 142, 144, 145, 146) is retrived from https://pixelkind.github.io/foundationsofprogramming/programming/15-07-example 13-02-23
 let starX = [];
 let starY = [];
 let starAlpha = [];
@@ -146,6 +148,7 @@ for (let i = 0; i < 700; i++) {
 
 // start, play and end screen
 
+// the following 7 lines of code (152, 153, 154, 156, 157, 158, 159) is retrived from https://pixelkind.github.io/foundationsofprogramming/programming/15-07-example 13-02-23
 function startScreen() {
   noStroke();
   background(0, 0, 50);
@@ -184,6 +187,7 @@ function startScreen() {
   }
 }
 
+// the following 7 lines of code (191, 192, 193, 195, 196, 197, 198) is retrived from https://pixelkind.github.io/foundationsofprogramming/programming/15-07-example 13-02-23
 function gameScreen() {
   noStroke();
   background(0, 0, 50);
@@ -229,6 +233,7 @@ function gameScreen() {
   }
 }
 
+// the following 7 lines of code (237, 238, 239, 241, 242, 243, 244) is retrived from https://pixelkind.github.io/foundationsofprogramming/programming/15-07-example 13-02-23
 function winScreen() {
   noStroke();
   background(0, 0, 50);
@@ -244,6 +249,7 @@ function winScreen() {
   rocketShip(300, 100, 1.3);
 }
 
+// the following 7 lines of code (253, 254, 255, 257, 258, 259, 260) is retrived from https://pixelkind.github.io/foundationsofprogramming/programming/15-07-example 13-02-23
 function loseScreen() {
   noStroke();
   background(0, 0, 50);
